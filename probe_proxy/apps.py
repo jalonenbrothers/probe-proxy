@@ -1,0 +1,45 @@
+"""App catalog for Milestone 0: 10 self-hosted apps + httpbin sanity target.
+
+Each entry: image, env, ports (container-internal http port), ready check
+(path that must return <500 once up), and startup grace seconds.
+Throwaway instances only — fresh containers, disposable creds.
+"""
+APPS = [
+    dict(name="httpbin", image="kennethreitz/httpbin:latest", port=80,
+         ready_path="//status/200", grace=25, env={}),
+    dict(name="immich", image="ghcr.io/immich-app/immich-server:release",
+         port=2283, ready_path="/api/server-info/ping", grace=120,
+         deps=[dict(image="ghcr.io/immich-app/postgres:17-vectorchord1.1.1",
+                     env={"POSTGRES_USER": "throwaway",
+                          "POSTGRES_PASSWORD": "throwaway",
+                          "POSTGRES_DB": "immich"}),
+               dict(image="valkey/valkey:8-alpine", env={})],
+         env={"DB_HOSTNAME": "localhost",
+              "DB_USERNAME": "throwaway", "DB_PASSWORD": "throwaway",
+              "DB_DATABASE_NAME": "immich",
+              "DB_VECTOR_EXTENSION": "vectorchord",
+              "REDIS_HOSTNAME": "localhost"}),
+    dict(name="jellyfin", image="jellyfin/jellyfin:latest", port=8096,
+         ready_path="/web/", grace=90, env={}),
+    dict(name="nextcloud", image="nextcloud:latest", port=80,
+         ready_path="/status.php", grace=150, env={}),
+    dict(name="homeassistant", image="ghcr.io/home-assistant/home-assistant:stable",
+         port=8123, ready_path="/api/", grace=120, env={}),
+    dict(name="pihole", image="pihole/pihole:latest", port=80,
+         ready_path="/admin/", grace=120,
+         env={"FTLCONF_webserver_api_password": "throwaway123",
+              "FTLCONF_webserver_port": "80"}),
+    dict(name="gitea", image="gitea/gitea:latest", port=3000,
+         ready_path="/api/healthz", grace=120, env={}),
+    dict(name="grafana", image="grafana/grafana:latest", port=3000,
+         ready_path="/api/health", grace=120,
+         env={"GF_SECURITY_ADMIN_PASSWORD": "throwaway123"}),
+    dict(name="uptimekuma", image="louislam/uptime-kuma:1", port=3001,
+         ready_path="/", grace=120, env={}),
+    dict(name="n8n", image="docker.n8n.io/n8nio/n8n:latest", port=5678,
+         ready_path="/healthz", grace=120,
+         env={"N8N_ENCRYPTION_KEY": "throwaway123"}),
+    dict(name="vaultwarden", image="vaultwarden/server:latest", port=80,
+         ready_path="/alive", grace=90,
+         env={"I_REALLY_WANT_VOLATILE_STORAGE": "true"}),
+]
