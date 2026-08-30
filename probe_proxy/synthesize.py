@@ -8,8 +8,10 @@ warnings — never a confidently-wrong config.
 """
 from __future__ import annotations
 
-# keys whose values are timing/volatile — never drive synthesis
-VOLATILE_KEYS = {"sse_first_chunk_ms"}
+# keys whose values are timing/volatile — never drive synthesis.
+# sse_chunks_observed: TCP-coalescing noise (M1); the gap-based keys are
+# the coalescing-stable replacement (M2).
+VOLATILE_KEYS = {"sse_first_chunk_ms", "sse_chunks_observed"}
 
 
 def _clean(fp: dict, probe: str) -> dict:
@@ -149,10 +151,29 @@ def iterate(params: list, warnings: list, diffs: list) -> bool:
     return changed
 
 
-def render(upstream: str, params: list, listen: str = ":80") -> str:
+def block_body(upstream: str, params: list, listen: str = ":80") -> str:
+    """The Caddyfile text WITHOUT probe-proxy marker comments."""
     lines = ["{", "  admin off", "  auto_https off", "}",
              f"{listen} {{", f"  reverse_proxy {upstream} {{"]
     for p in params:
         lines.append(f"    {p}")
     lines += ["  }", "}"]
     return "\n".join(lines) + "\n"
+
+
+def marker_for(body: str) -> str:
+    """Managed-by marker line: comment carrying a sha256 of the block body.
+
+    Machine-checkable: `probe-proxy verify` strips marker lines, hashes the
+    remaining block, and compares against the marker to measure hand-edit
+    drift. Content-hash of the exact body (excluding the marker itself).
+    """
+    import hashlib
+    h = hashlib.sha256(body.strip().encode()).hexdigest()[:16]
+    return f"# managed-by probe-proxy v0.2 sha256:{h}"
+
+
+def render(upstream: str, params: list, listen: str = ":80") -> str:
+    """Caddyfile with managed-by marker (hand-edit counter, M2)."""
+    body = block_body(upstream, params, listen)
+    return marker_for(body) + "\n" + body

@@ -123,6 +123,68 @@ bash run_replay.sh replay_retry jellyfin gitea
 .venv/bin/python -m probe_proxy replay_report
 ```
 
+## Milestone 2 — CLI UX + hand-edit counter + honest baseline (PASSED)
+
+Three things landed:
+
+1. **One-command operator flow**: `probe-proxy <container>` runs
+   probe -> synthesize -> replay-verify (<=3 iters) -> prints the Caddy
+   block (with a `# managed-by probe-proxy ... sha256:<hash>` marker) +
+   a human verification report; `--json` for machine output. Clean
+   errors when the container isn't running. `probe-proxy verify
+   <config-file>` re-runs the replay suite against your EXISTING
+   Caddyfile and reports drift + broken probes — the hand-edit counter
+   is now real instrumentation, not a scaffold.
+2. **SSE probe fixed**: inter-chunk timing gaps (>=50ms) replace raw
+   chunk counts, which were TCP-coalescing noise. gitea now drops out
+   of residual diffs (zero-diff on the M2 baseline), and `sse_streamed`
+   is gap-derived too.
+3. **Honest baseline** (below).
+
+### Honest baseline: synthesized vs EMPTY config (the value story)
+
+Every config generator claims to save you from hand-tuning. We measured
+it: each of the 10 apps replayed twice in one session — (a) through the
+synthesized, loop-verified config, (b) through an EMPTY
+`reverse_proxy app:port` block with zero parameters, single pass, no
+fixers.
+
+| app | empty config: diffs | synthesized: diffs | synthesis wins |
+|---|---|---|---|
+| homeassistant | 17 | 0 | **YES** |
+| gitea | 1 | 0 | **YES** |
+| pihole | 2 | 1 | **YES** |
+| vaultwarden | 0 | 2 | no* |
+| nextcloud | 1 | 1 | tie |
+| immich / jellyfin / grafana / uptimekuma / n8n | 0 | 0 | tie |
+
+Synthesized beats the empty config on **3 of 10 apps** — above the
+retreat bar (<=2/10) but the honest headline is: **Caddy's default
+reverse_proxy is near-perfect pass-through for ~6-7 of 10 self-hosted
+apps**. What synthesis + replay-verify actually buys you is the
+invisible-killer class — Home Assistant's 17-diff XFF rejection is
+exactly the config that looks fine and breaks the app silently.
+
+* vaultwarden's empty-arm 0 was run-to-run luck: its `large_post`
+405/502 diff is app-level nondeterminism (it appeared on the synth side
+in this run, on the empty side in M1); the synthesized config had zero
+directives, i.e. identical to the empty block.
+
+Run it yourself: `bash run_baseline.sh` (~4 min with images cached);
+raw results in `replay/baseline.json`, table in `replay/baseline_table.md`.
+
+## Usage (M2)
+
+```bash
+# one command, end-to-end against a running container or compose service
+sg docker -c ".venv/bin/python -m probe_proxy my-gitea"
+sg docker -c ".venv/bin/python -m probe_proxy my-gitea --json"
+
+# later: did you hand-edit the generated block? did it break anything?
+sg docker -c ".venv/bin/python -m probe_proxy verify my-gitea.Caddyfile"
+sg docker -c ".venv/bin/python -m probe_proxy verify my-gitea.Caddyfile --json"
+```
+
 ## Scope notes (from the critic, enforced)
 
 - Throwaway instances only — never probe a real deployment (probes can

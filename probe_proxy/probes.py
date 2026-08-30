@@ -112,29 +112,58 @@ def probe_websocket(base: str, c: httpx.Client) -> dict:
             "ws_any_data": any(":data:" in v for v in results.values())}
 
 
+GAP_MS = 50  # inter-chunk gap threshold: survives TCP coalescing noise
+
+
+def sse_metrics(t_starts: list[float]) -> dict:
+    """Turn per-chunk arrival timestamps into coalescing-stable metrics.
+
+    Raw chunk COUNTS are TCP-coalescing noise (M1: gitea 5 chunks direct
+    vs 1 via an identical config). What actually matters — and survives
+    coalescing — is the *timing structure*: how many gaps between chunk
+    arrivals are >= GAP_MS (i.e. distinct events arriving over time vs one
+    buffered burst). M2 change.
+    """
+    gaps = [b - a for a, b in zip(t_starts, t_starts[1:])]
+    return {
+        "sse_chunks_observed": len(t_starts),
+        "sse_gaps_ge_50ms": sum(1 for g in gaps if g * 1000 >= GAP_MS),
+        "sse_max_gap_ms": round(max(gaps) * 1000) if gaps else 0,
+    }
+
+
 def probe_sse(base: str, c: httpx.Client) -> dict:
-    """GET / with Accept: text/event-stream; measure chunk timing if streamed."""
+    """GET / with Accept: text/event-stream; measure chunk arrival times."""
     try:
         with c.stream("GET", base + "/",
                       headers={"Accept": "text/event-stream"},
                       follow_redirects=True) as r:
             ctype = r.headers.get("content-type", "")
             start = time.time()
-            chunks = 0
-            first_chunk = None
+            t_starts: list[float] = []
             for _ in r.iter_raw():
-                chunks += 1
-                if first_chunk is None:
-                    first_chunk = time.time() - start
-                if chunks >= 5 or time.time() - start > 6:
+                t_starts.append(time.time() - start)
+                if len(t_starts) >= 5 or time.time() - start > 6:
                     break
-            return {"sse_content_type": ctype.split(";")[0],
-                    "sse_streamed": chunks > 1,
-                    "sse_first_chunk_ms": round((first_chunk or 99) * 1000),
-                    "sse_chunks_observed": chunks}
+            out = {
+                "sse_content_type": ctype.split(";")[0],
+                # streamed = real temporal separation between chunks
+                # (gap-based, coalescing-stable — M2; chunk-count-derived
+                # 'streamed' was TCP-coalescing noise)
+                "sse_streamed": None,  # filled below from gaps
+                "sse_first_chunk_ms": round((t_starts[0] if t_starts else 99) * 1000),
+            }
+            if t_starts:
+                out.update(sse_metrics(t_starts))
+                out["sse_streamed"] = out["sse_gaps_ge_50ms"] >= 1
+            else:
+                out.update({"sse_chunks_observed": 0,
+                            "sse_gaps_ge_50ms": 0, "sse_max_gap_ms": 0})
+            return out
     except Exception as e:
         return {"sse_content_type": "", "sse_streamed": False,
                 "sse_first_chunk_ms": -1, "sse_chunks_observed": 0,
+                "sse_gaps_ge_50ms": 0, "sse_max_gap_ms": 0,
                 "err": type(e).__name__}
 
 

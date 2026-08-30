@@ -1,0 +1,335 @@
+{
+  "immich": {
+    "app": "immich",
+    "ready": true,
+    "synth": {
+      "zero_diff": true,
+      "diffs": [],
+      "iters": 1,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": true,
+      "diffs": []
+    },
+    "warnings": []
+  },
+  "jellyfin": {
+    "app": "jellyfin",
+    "ready": true,
+    "synth": {
+      "zero_diff": true,
+      "diffs": [],
+      "iters": 1,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": true,
+      "diffs": []
+    },
+    "warnings": [
+      "app already emits br; Caddy encode left off to preserve identity"
+    ]
+  },
+  "nextcloud": {
+    "app": "nextcloud",
+    "ready": true,
+    "synth": {
+      "zero_diff": false,
+      "diffs": [
+        {
+          "probe": "large_post",
+          "key": "post10mb_len_header",
+          "direct": "1667",
+          "via": "1666"
+        }
+      ],
+      "iters": 3,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": false,
+      "diffs": [
+        {
+          "probe": "large_post",
+          "key": "post10mb_len_header",
+          "direct": "1667",
+          "via": "1662"
+        }
+      ]
+    },
+    "warnings": [
+      "app already emits gzip; Caddy encode left off to preserve identity",
+      "well-known 301 redirects are app policy; passed through unchanged",
+      "iter: no known fixer applies to diffs: large_post.post10mb_len_header",
+      "iter: no known fixer applies to diffs: large_post.post10mb_len_header"
+    ]
+  },
+  "homeassistant": {
+    "app": "homeassistant",
+    "ready": true,
+    "synth": {
+      "zero_diff": true,
+      "diffs": [],
+      "iters": 2,
+      "params": [
+        "flush_interval -1",
+        "header_down Location \"^https?://[^/]+(.*)$\" \"$1\"",
+        "header_up -X-Forwarded-For"
+      ]
+    },
+    "empty": {
+      "zero_diff": false,
+      "diffs": [
+        {
+          "probe": "root",
+          "key": "root_location",
+          "direct": "/onboarding.html",
+          "via": ""
+        },
+        {
+          "probe": "root",
+          "key": "root_server",
+          "direct": "",
+          "via": "Python/3.14 aiohttp/3.14.3"
+        },
+        {
+          "probe": "root",
+          "key": "root_status",
+          "direct": 302,
+          "via": 400
+        },
+        {
+          "probe": "redirect_chain",
+          "key": "redirect_chain",
+          "direct": "302>200",
+          "via": "none"
+        },
+        {
+          "probe": "redirect_chain",
+          "key": "redirect_hops",
+          "direct": 1,
+          "via": 0
+        },
+        {
+          "probe": "tls_redirect",
+          "key": "tls_redirect_status",
+          "direct": 404,
+          "via": 400
+        },
+        {
+          "probe": "xfp_upgrade",
+          "key": "xfp_location",
+          "direct": "/onboarding.html",
+          "via": ""
+        },
+        {
+          "probe": "xfp_upgrade",
+          "key": "xfp_status",
+          "direct": 302,
+          "via": 400
+        },
+        {
+          "probe": "sse",
+          "key": "sse_content_type",
+          "direct": "text/html",
+          "via": "text/plain"
+        },
+        {
+          "probe": "large_post",
+          "key": "post10mb_len_header",
+          "direct": "23",
+          "via": "16"
+        },
+        {
+          "probe": "large_post",
+          "key": "post10mb_status",
+          "direct": 405,
+          "via": 400
+        },
+        {
+          "probe": "well_known",
+          "key": "well_known",
+          "direct": "{\"acme-challenge/test\": 404, \"caldav\": 404, \"carddav\": 404, \"matrix/server\": 404, \"security.txt\": 404, \"webfinger\": 404}",
+          "via": "{\"acme-challenge/test\": 400, \"caldav\": 400, \"carddav\": 400, \"matrix/server\": 400, \"security.txt\": 400, \"webfinger\": 400}"
+        },
+        {
+          "probe": "method_allow",
+          "key": "options_allow",
+          "direct": "GET",
+          "via": ""
+        },
+        {
+          "probe": "method_allow",
+          "key": "propfind_status",
+          "direct": 405,
+          "via": 400
+        },
+        {
+          "probe": "common_paths",
+          "key": "path_statuses",
+          "direct": "{\"/admin\": 404, \"/api\": 404, \"/api/health\": 404, \"/api/v1\": 404, \"/health\": 404, \"/login\": 404, \"/metrics\": 404, \"/status\": 404, \"/web/\": 404, \"/websockets\": 404}",
+          "via": "{\"/admin\": 400, \"/api\": 400, \"/api/health\": 400, \"/api/v1\": 400, \"/health\": 400, \"/login\": 400, \"/metrics\": 400, \"/status\": 400, \"/web/\": 400, \"/websockets\": 400}"
+        },
+        {
+          "probe": "compression",
+          "key": "compression",
+          "direct": "br",
+          "via": "none"
+        },
+        {
+          "probe": "compression",
+          "key": "vary",
+          "direct": true,
+          "via": false
+        }
+      ]
+    },
+    "warnings": [
+      "app already emits br; Caddy encode left off to preserve identity",
+      "iter: added flush_interval -1 for streaming diff (sse broken by buffering)",
+      "iter: rewriting absolute Location headers (upstream leaked its internal host)",
+      "iter: app rejects X-Forwarded-For (4xx on previously-2xx/3xx paths); dropping XFF header"
+    ]
+  },
+  "pihole": {
+    "app": "pihole",
+    "ready": true,
+    "synth": {
+      "zero_diff": false,
+      "diffs": [
+        {
+          "probe": "large_post",
+          "key": "post10mb_status",
+          "direct": 405,
+          "via": "conn-reset"
+        }
+      ],
+      "iters": 3,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": false,
+      "diffs": [
+        {
+          "probe": "large_post",
+          "key": "post10mb_len_header",
+          "direct": "",
+          "via": "0"
+        },
+        {
+          "probe": "large_post",
+          "key": "post10mb_status",
+          "direct": 405,
+          "via": 502
+        }
+      ]
+    },
+    "warnings": [
+      "iter: no known fixer applies to diffs: large_post.post10mb_status",
+      "iter: no known fixer applies to diffs: large_post.post10mb_len_header, large_post.post10mb_status"
+    ]
+  },
+  "gitea": {
+    "app": "gitea",
+    "ready": true,
+    "synth": {
+      "zero_diff": true,
+      "diffs": [],
+      "iters": 1,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": false,
+      "diffs": [
+        {
+          "probe": "method_allow",
+          "key": "options_allow",
+          "direct": "GET, POST",
+          "via": "POST, GET"
+        }
+      ]
+    },
+    "warnings": []
+  },
+  "grafana": {
+    "app": "grafana",
+    "ready": true,
+    "synth": {
+      "zero_diff": true,
+      "diffs": [],
+      "iters": 1,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": true,
+      "diffs": []
+    },
+    "warnings": [
+      "app already emits gzip; Caddy encode left off to preserve identity"
+    ]
+  },
+  "uptimekuma": {
+    "app": "uptimekuma",
+    "ready": true,
+    "synth": {
+      "zero_diff": true,
+      "diffs": [],
+      "iters": 1,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": true,
+      "diffs": []
+    },
+    "warnings": [
+      "websocket paths ['/socket.io/?EIO=4&transport=websocket'] open; Caddy upgrades transparently, no directive needed"
+    ]
+  },
+  "n8n": {
+    "app": "n8n",
+    "ready": true,
+    "synth": {
+      "zero_diff": true,
+      "diffs": [],
+      "iters": 1,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": true,
+      "diffs": []
+    },
+    "warnings": []
+  },
+  "vaultwarden": {
+    "app": "vaultwarden",
+    "ready": true,
+    "synth": {
+      "zero_diff": false,
+      "diffs": [
+        {
+          "probe": "large_post",
+          "key": "post10mb_len_header",
+          "direct": "1834",
+          "via": "0"
+        },
+        {
+          "probe": "large_post",
+          "key": "post10mb_status",
+          "direct": 404,
+          "via": 502
+        }
+      ],
+      "iters": 3,
+      "params": []
+    },
+    "empty": {
+      "zero_diff": true,
+      "diffs": []
+    },
+    "warnings": [
+      "iter: no known fixer applies to diffs: large_post.post10mb_len_header, large_post.post10mb_status",
+      "iter: no known fixer applies to diffs: large_post.post10mb_len_header, large_post.post10mb_status"
+    ]
+  }
+}

@@ -82,3 +82,43 @@ pulled on first run otherwise `docker pull caddy:2`), ~16 GB disk.
   top-10 self-hosted apps. The concept survives its core delta test.
 - **Had it been <5/10**: kill — configs could not be verified to
   preserve behavior; record under IDEA-1 rejected_assumptions and stop.
+
+## Milestone 2 — CLI UX + hand-edit counter + honest baseline (PASSED)
+
+**What it is**: (1) `probe-proxy <container-or-compose-service>` — a
+single end-to-end command: probe -> synthesize -> replay-verify (<=3
+iters) -> print Caddy block (with `# managed-by probe-proxy ...
+sha256:<hash>` marker) + human verification report; `--json` supported;
+clean errors when the container isn't running. (2) `probe-proxy verify
+<config-file>` — re-runs the replay suite against a user's EXISTING
+Caddyfile, reports (a) drift from the generated block via the marker
+hash, (b) broken probes. Drift + broken-probe rows land in
+`probe_results.db` (hand_edits table) — the "users still hand-edit"
+metric is now measurable. (3) SSE probe measures inter-chunk timing gaps
+(>=50ms) instead of raw chunk counts.
+
+**Hypotheses under test**:
+- "A homelab operator can get a verified config in one command" —
+  demonstrated live (`demo_m2.sh`): gitea, 1 iteration, zero-diff, saved
+  block; hand-edit detected by `verify` with verdict "edited but still
+  behavior-preserving".
+- "Synthesized configs beat an EMPTY reverse_proxy block" (honest
+  baseline) — 3/10 apps (homeassistant 17->0, gitea 1->0, pihole 2->1);
+  6 ties at 0/0; vaultwarden empty-arm 0 was large_post flakiness luck.
+  Above the retreat bar (<=2/10) so NO retreat, but the value story is
+  honestly narrow: Caddy's default is near-perfect for ~6-7/10 apps;
+  synthesis+replay earns its keep on the invisible-killer class (HA's
+  XFF rejection would silently 400 every request).
+
+**Result**: PASSED (no retreat). The interesting side-observation is
+the baseline itself — see README "Honest baseline".
+
+Run:
+```bash
+bash run_tests.sh                          # M0-M2 unit tests (21)
+bash run_baseline.sh                       # full 10-app honest baseline (~4 min cached)
+bash demo_m2.sh                            # live e2e CLI + verify demo (throwaway gitea)
+bash demo_errors.sh                        # clean-error paths + --json smoke
+sg docker -c ".venv/bin/python -m probe_proxy <container>"   # one command, any container
+sg docker -c ".venv/bin/python -m probe_proxy verify <Caddyfile>"
+```

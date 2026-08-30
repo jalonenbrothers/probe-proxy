@@ -1,0 +1,9 @@
+# managed-by probe-proxy v0.2 sha256:0418d5b8304f4107
+{
+  admin off
+  auto_https off
+}
+:80 {
+  reverse_proxy probe-proxy-m2b-homeassistant:8123 {
+  }
+}

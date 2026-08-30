@@ -98,16 +98,17 @@ def confirm_diffs(direct_base: str, via_base: str, diffs: list,
 
 
 
-def start_caddy(dc, net: str, caddyfile: str):
+def start_caddy(dc, net: str, caddyfile: str, name: str = "probe-proxy-m1-caddy"):
     """Run caddy:2 with the given Caddyfile; return (container, host_port)."""
     import tempfile
+    import uuid
     port = free_port()
     f = tempfile.NamedTemporaryFile("w", suffix=".Caddyfile", delete=False)
     f.write(caddyfile)
     f.close()
     cont = dc.containers.run(
-        "caddy:2", name=f"probe-proxy-m1-caddy", detach=True, remove=True,
-        network=net, ports={"80/tcp": port},
+        "caddy:2", name=f"{name}-{uuid.uuid4().hex[:6]}", detach=True,
+        remove=True, network=net, ports={"80/tcp": port},
         volumes={f.name: {"bind": "/etc/caddy/Caddyfile", "mode": "ro"}})
     return cont, port
 
@@ -123,6 +124,55 @@ def wait_caddy(port: int, timeout: int = 30) -> bool:
             pass
         time.sleep(1)
     return False
+
+
+def replay_against(dc, net: str, direct_base: str, direct: dict,
+                   upstream: str, params: list, warnings: list,
+                   label: str, out_name: str | None = None,
+                   max_iter: int = MAX_ITER) -> dict:
+    """Run the replay-verify iteration loop against an already-running app.
+
+    Shared core for `replay.run_single` (M1 suite), the M2 e2e CLI and
+    the M2 baseline. max_iter=1 disables fixers (pure single-pass replay
+    — used for the EMPTY-config baseline arm).
+    Returns {history, diffs, zero_diff, caddyfile}.
+    """
+    from . import synthesize as syn
+    history, final_diffs, caddy, caddyfile = [], [], None, ""
+    for it in range(1, max_iter + 1):
+        caddyfile = syn.render(upstream, params)
+        if out_name:
+            OUT_DIR.mkdir(exist_ok=True)
+            (OUT_DIR / f"Caddyfile.{out_name}").write_text(caddyfile)
+        try:
+            if caddy:
+                caddy.stop(timeout=3)
+        except Exception:
+            pass
+        caddy, cport = start_caddy(dc, net, caddyfile)
+        wait_caddy(cport)
+        via = probes.run_all(f"http://127.0.0.1:{cport}")
+        diffs = diff_fingerprints(direct, via)
+        if diffs:
+            diffs = confirm_diffs(direct_base,
+                                   f"http://127.0.0.1:{cport}", diffs)
+        history.append({"iteration": it, "params": list(params),
+                        "diffs": diffs})
+        final_diffs = diffs
+        print(f"[{label}] iter {it}: {len(diffs)} diffs "
+              + (f"-> {[(d['probe'], d['key']) for d in diffs]}"
+                 if diffs else "-> ZERO-DIFF"))
+        if not diffs:
+            break
+        if it < MAX_ITER:
+            syn.iterate(params, warnings, diffs)
+    if caddy:
+        try:
+            caddy.stop(timeout=3)
+        except Exception:
+            pass
+    return {"history": history, "diffs": final_diffs,
+            "zero_diff": not final_diffs, "caddyfile": caddyfile}
 
 
 def run_single(name: str, dc=None) -> dict:
@@ -156,41 +206,13 @@ def run_single(name: str, dc=None) -> dict:
         upstream = f"probe-proxy-m1-{name}:{app['port']}"
         synth = synthesize.synthesize(direct, upstream)
         params, warnings = synth["params"], list(synth["warnings"])
-        history = []
-        final_diffs = []
-        for it in range(1, MAX_ITER + 1):
-            caddyfile = synthesize.render(upstream, params)
-            # write config artifact
-            OUT_DIR.mkdir(exist_ok=True)
-            (OUT_DIR / f"Caddyfile.{name}").write_text(caddyfile)
-            try:
-                if caddy:
-                    caddy.stop(timeout=3)
-            except Exception:
-                pass
-            caddy, cport = start_caddy(dc, net.name, caddyfile)
-            wait_caddy(cport)
-            via = probes.run_all(f"http://127.0.0.1:{cport}")
-            diffs = diff_fingerprints(direct, via)
-            if diffs:
-                # confirm persistence: re-sample diffing probes 3x,
-                # keep only majority-persistent diffs (flaky timing
-                # probes like sse chunk counts otherwise false-alarm)
-                diffs = confirm_diffs(direct_base,
-                                      f"http://127.0.0.1:{cport}", diffs)
-            history.append({"iteration": it, "params": list(params),
-                            "diffs": diffs})
-            final_diffs = diffs
-            print(f"[{name}] iter {it}: {len(diffs)} diffs "
-                  + (f"-> {[(d['probe'], d['key']) for d in diffs]}"
-                     if diffs else "-> ZERO-DIFF"))
-            if not diffs:
-                break
-            if it < MAX_ITER:
-                synthesize.iterate(params, warnings, diffs)
+        OUT_DIR.mkdir(exist_ok=True)
+        res = replay_against(dc, net.name, direct_base, direct, upstream,
+                             params, warnings, name, out_name=name)
+        history, final_diffs = res["history"], res["diffs"]
 
         return {"app": name, "ready": ok, "iterations": history,
-                "zero_diff": not final_diffs, "diffs": final_diffs,
+                "zero_diff": res["zero_diff"], "diffs": final_diffs,
                 "warnings": warnings,
                 "params": params,
                 "caddyfile": (OUT_DIR / f"Caddyfile.{name}").read_text()}

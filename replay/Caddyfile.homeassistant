@@ -1,9 +1,10 @@
+# managed-by probe-proxy v0.2 sha256:4bd90280cc2b83b2
 {
   admin off
   auto_https off
 }
 :80 {
-  reverse_proxy probe-proxy-m1-homeassistant:8123 {
+  reverse_proxy probe-proxy-m2b-homeassistant:8123 {
     flush_interval -1
     header_down Location "^https?://[^/]+(.*)$" "$1"
     header_up -X-Forwarded-For
