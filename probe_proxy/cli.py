@@ -15,6 +15,7 @@ import time
 from pathlib import Path
 
 from . import probes
+from . import synthesize
 
 DB = Path(__file__).resolve().parent.parent / "probe_results.db"
 
@@ -84,9 +85,20 @@ def main(argv=None):
     elif cmd == "run":
         cmd_run(args[0])
     elif cmd == "synthesize":
-        print("STUB: synthesis arrives in Milestone 1 — M0 is probes only.")
+        fp = json.loads(Path(args[0]).read_text())
+        out = synthesize.synthesize(fp, args[1] if len(args) > 1 else "app:80")
+        print(out["caddyfile"])
+        for w in out["warnings"]:
+            print(f"# WARNING: {w}", file=sys.stderr)
     elif cmd == "replay":
-        print("STUB: replay-verify arrives in Milestone 1 — M0 is probes only.")
+        from . import replay
+        replay.run()
+    elif cmd == "replay_retry":
+        from . import replay
+        replay.run()
+    elif cmd == "replay_report":
+        from . import report
+        report.main()
     elif cmd == "record-edits":
         count_hand_edit(args[0], int(args[1]))
         print("recorded")

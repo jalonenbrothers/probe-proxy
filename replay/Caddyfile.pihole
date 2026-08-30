@@ -1,0 +1,9 @@
+{
+  admin off
+  auto_https off
+}
+:80 {
+  reverse_proxy probe-proxy-m1-pihole:80 {
+    flush_interval -1
+  }
+}

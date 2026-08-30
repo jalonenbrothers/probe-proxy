@@ -8,9 +8,9 @@ the observed behavior fingerprint, then **replay every probe through the
 generated config and diff results**, iterating up to 3 times until the
 config provably preserves the app's behavior.
 
-**Milestone 0 status: PASSED — 10/10 apps behaviorally distinguishable.**
-The disproof experiment (do probes yield distinguishable fingerprints at
-all?) did NOT kill the concept. See `MATRIX.md`.
+**Milestone 1 status: PASSED — 8/10 apps zero-diff through the
+synthesized configs.** The replay-verify loop (the core delta) works:
+see `REPLAY.md`.
 
 ## Milestone 0 — probe-coverage matrix
 
@@ -53,6 +53,9 @@ probe_proxy/
   probes.py     # 12 probe classes -> behavior fingerprint dict
   apps.py       # M0 catalog: image, env, ready check, dep sidecars
   matrix.py    # container lifecycle + matrix runner (docker SDK)
+  synthesize.py # M1: fingerprint -> Caddyfile params + fixers
+  replay.py     # M1: replay-verify loop (direct vs via-config diff)
+  report.py     # M1: replay.json -> REPLAY.md
   cli.py       # CLI entry + SQLite store + hand-edit counter scaffold
 analyze.py      # fingerprint vectors -> MATRIX.md + distinguishability verdict
 run_matrix.sh   # full M0 matrix run (wraps docker group via sg)
@@ -64,31 +67,26 @@ matrix.json     # raw fingerprints
 probe_results.db# SQLite probe-result store (+ hand_edits table)
 ```
 
-## Replay report format (M1 — defined now, implemented later)
+## Milestone 1 — synthesis + replay-verify (PASSED: 8/10 zero-diff)
 
-Each replay run will emit a report:
+From a fingerprint, `probe_proxy/synthesize.py` emits a Caddy
+reverse-proxy block (pass-through by default; directives only from
+observed behavioral quirks — e.g. `flush_interval -1` for streaming
+apps). `probe_proxy/replay.py` then replays every probe THROUGH the
+generated config (Caddy in docker on the app's network) and diffs
+against direct-to-container, re-sampling flaky probes (3x majority
+vote) and iterating up to 3 times with fixers derived from the diffs.
 
-```json
-{
-  "app": "jellyfin",
-  "config": "Caddyfile.jellyfin",
-  "iteration": 2,
-  "probes_total": 12,
-  "probes_matching_direct": 12,
-  "probes_matching_replayed": 11,
-  "diffs": [
-    {"probe": "sse", "key": "sse_chunks_observed",
-     "direct": 5, "replayed": 1,
-     "fix_hint": "disable response buffering for this upstream"}
-  ],
-  "hand_edits": 0
-}
-```
+Result: **8/10 apps zero-diff** (kill bar was <5/10). Full table:
+`REPLAY.md`; configs: `replay/Caddyfile.<app>`; raw:
+`replay/replay.json`.
 
-`hand_edits` is the real product metric: how many manual edits the user
-still makes after accepting a generated config. The counter is scaffolded
-from day one (`probe-proxy record-edits <config> <count>` writes to the
-`hand_edits` SQLite table).
+Notable loop saves: Home Assistant 400s on X-Forwarded-For (17 diffs
+on iter 1 -> all fixed by dropping XFF via `header_up
+-X-Forwarded-For`). The two residuals are proxy physics, not synthesis
+errors: pihole answers 405 without draining the request body (Caddy
+sees a broken pipe -> 502), and gitea's 5 sub-ms SSE writes get
+legitimately coalesced into one TCP segment.
 
 ## Usage
 
@@ -112,9 +110,17 @@ sg docker -c ".venv/bin/python -m probe_proxy matrix_retry immich vaultwarden"
 sg docker -c ".venv/bin/python -m probe_proxy run jellyfin"
 .venv/bin/python -m probe_proxy run http://127.0.0.1:8080
 
-# stubs (M1)
-.venv/bin/python -m probe_proxy synthesize <fingerprint>
-.venv/bin/python -m probe_proxy replay <config>
+# synthesize a Caddyfile from a fingerprint json + upstream
+.venv/bin/python -m probe_proxy synthesize matrix.json 127.0.0.1:8096
+
+# full M1 replay-verify loop over the 10 apps (~45 min)
+bash run_replay.sh replay
+
+# re-run selected apps and merge into replay/replay.json
+bash run_replay.sh replay_retry jellyfin gitea
+
+# regenerate REPLAY.md from replay/replay.json
+.venv/bin/python -m probe_proxy replay_report
 ```
 
 ## Scope notes (from the critic, enforced)
