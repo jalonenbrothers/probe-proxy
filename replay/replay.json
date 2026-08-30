@@ -1,0 +1,491 @@
+{
+  "vaultwarden": {
+    "app": "vaultwarden",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [],
+        "diffs": [
+          {
+            "probe": "sse",
+            "key": "sse_chunks_observed",
+            "direct": 1,
+            "via": 2
+          },
+          {
+            "probe": "sse",
+            "key": "sse_streamed",
+            "direct": false,
+            "via": true
+          }
+        ]
+      },
+      {
+        "iteration": 2,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "large_post",
+            "key": "post10mb_len_header",
+            "direct": "1834",
+            "via": "0"
+          },
+          {
+            "probe": "large_post",
+            "key": "post10mb_status",
+            "direct": 404,
+            "via": 502
+          }
+        ]
+      },
+      {
+        "iteration": 3,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [
+      "iter: added flush_interval -1 for streaming diff (sse broken by buffering)",
+      "iter: no known fixer applies to diffs: large_post.post10mb_len_header, large_post.post10mb_status"
+    ],
+    "params": [
+      "flush_interval -1"
+    ],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-vaultwarden:80 {\n    flush_interval -1\n  }\n}\n"
+  },
+  "gitea": {
+    "app": "gitea",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "sse",
+            "key": "sse_chunks_observed",
+            "direct": 5,
+            "via": 2
+          }
+        ]
+      },
+      {
+        "iteration": 2,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "sse",
+            "key": "sse_chunks_observed",
+            "direct": 5,
+            "via": 2
+          }
+        ]
+      },
+      {
+        "iteration": 3,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "sse",
+            "key": "sse_chunks_observed",
+            "direct": 5,
+            "via": 1
+          }
+        ]
+      }
+    ],
+    "zero_diff": false,
+    "diffs": [
+      {
+        "probe": "sse",
+        "key": "sse_chunks_observed",
+        "direct": 5,
+        "via": 1
+      }
+    ],
+    "warnings": [
+      "iter: no known fixer applies to diffs: sse.sse_chunks_observed",
+      "iter: no known fixer applies to diffs: sse.sse_chunks_observed"
+    ],
+    "params": [
+      "flush_interval -1"
+    ],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-gitea:3000 {\n    flush_interval -1\n  }\n}\n"
+  },
+  "grafana": {
+    "app": "grafana",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "sse",
+            "key": "sse_chunks_observed",
+            "direct": 4,
+            "via": 2
+          }
+        ]
+      },
+      {
+        "iteration": 2,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "sse",
+            "key": "sse_chunks_observed",
+            "direct": 4,
+            "via": 2
+          }
+        ]
+      },
+      {
+        "iteration": 3,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [
+      "app already emits gzip; Caddy encode left off to preserve identity",
+      "iter: no known fixer applies to diffs: sse.sse_chunks_observed",
+      "iter: no known fixer applies to diffs: sse.sse_chunks_observed"
+    ],
+    "params": [
+      "flush_interval -1"
+    ],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-grafana:3000 {\n    flush_interval -1\n  }\n}\n"
+  },
+  "uptimekuma": {
+    "app": "uptimekuma",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [
+      "websocket paths ['/socket.io/?EIO=4&transport=websocket'] open; Caddy upgrades transparently, no directive needed"
+    ],
+    "params": [],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-uptimekuma:3001 {\n  }\n}\n"
+  },
+  "homeassistant": {
+    "app": "homeassistant",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [],
+        "diffs": [
+          {
+            "probe": "root",
+            "key": "root_location",
+            "direct": "/onboarding.html",
+            "via": ""
+          },
+          {
+            "probe": "root",
+            "key": "root_server",
+            "direct": "",
+            "via": "Python/3.14 aiohttp/3.14.3"
+          },
+          {
+            "probe": "root",
+            "key": "root_status",
+            "direct": 302,
+            "via": 400
+          },
+          {
+            "probe": "redirect_chain",
+            "key": "redirect_chain",
+            "direct": "302>200",
+            "via": "none"
+          },
+          {
+            "probe": "redirect_chain",
+            "key": "redirect_hops",
+            "direct": 1,
+            "via": 0
+          },
+          {
+            "probe": "tls_redirect",
+            "key": "tls_redirect_status",
+            "direct": 404,
+            "via": 400
+          },
+          {
+            "probe": "xfp_upgrade",
+            "key": "xfp_location",
+            "direct": "/onboarding.html",
+            "via": ""
+          },
+          {
+            "probe": "xfp_upgrade",
+            "key": "xfp_status",
+            "direct": 302,
+            "via": 400
+          },
+          {
+            "probe": "sse",
+            "key": "sse_content_type",
+            "direct": "text/html",
+            "via": "text/plain"
+          },
+          {
+            "probe": "large_post",
+            "key": "post10mb_len_header",
+            "direct": "23",
+            "via": "16"
+          },
+          {
+            "probe": "large_post",
+            "key": "post10mb_status",
+            "direct": 405,
+            "via": 400
+          },
+          {
+            "probe": "well_known",
+            "key": "well_known",
+            "direct": "{\"acme-challenge/test\": 404, \"caldav\": 404, \"carddav\": 404, \"matrix/server\": 404, \"security.txt\": 404, \"webfinger\": 404}",
+            "via": "{\"acme-challenge/test\": 400, \"caldav\": 400, \"carddav\": 400, \"matrix/server\": 400, \"security.txt\": 400, \"webfinger\": 400}"
+          },
+          {
+            "probe": "method_allow",
+            "key": "options_allow",
+            "direct": "GET",
+            "via": ""
+          },
+          {
+            "probe": "method_allow",
+            "key": "propfind_status",
+            "direct": 405,
+            "via": 400
+          },
+          {
+            "probe": "common_paths",
+            "key": "path_statuses",
+            "direct": "{\"/admin\": 404, \"/api\": 404, \"/api/health\": 404, \"/api/v1\": 404, \"/health\": 404, \"/login\": 404, \"/metrics\": 404, \"/status\": 404, \"/web/\": 404, \"/websockets\": 404}",
+            "via": "{\"/admin\": 400, \"/api\": 400, \"/api/health\": 400, \"/api/v1\": 400, \"/health\": 400, \"/login\": 400, \"/metrics\": 400, \"/status\": 400, \"/web/\": 400, \"/websockets\": 400}"
+          },
+          {
+            "probe": "compression",
+            "key": "compression",
+            "direct": "br",
+            "via": "none"
+          },
+          {
+            "probe": "compression",
+            "key": "vary",
+            "direct": true,
+            "via": false
+          }
+        ]
+      },
+      {
+        "iteration": 2,
+        "params": [
+          "flush_interval -1",
+          "header_down Location \"^https?://[^/]+(.*)$\" \"$1\"",
+          "header_up -X-Forwarded-For"
+        ],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [
+      "app already emits br; Caddy encode left off to preserve identity",
+      "iter: added flush_interval -1 for streaming diff (sse broken by buffering)",
+      "iter: rewriting absolute Location headers (upstream leaked its internal host)",
+      "iter: app rejects X-Forwarded-For (4xx on previously-2xx/3xx paths); dropping XFF header"
+    ],
+    "params": [
+      "flush_interval -1",
+      "header_down Location \"^https?://[^/]+(.*)$\" \"$1\"",
+      "header_up -X-Forwarded-For"
+    ],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-homeassistant:8123 {\n    flush_interval -1\n    header_down Location \"^https?://[^/]+(.*)$\" \"$1\"\n    header_up -X-Forwarded-For\n  }\n}\n"
+  },
+  "jellyfin": {
+    "app": "jellyfin",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [
+      "app already emits br; Caddy encode left off to preserve identity"
+    ],
+    "params": [
+      "flush_interval -1"
+    ],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-jellyfin:8096 {\n    flush_interval -1\n  }\n}\n"
+  },
+  "immich": {
+    "app": "immich",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [],
+    "params": [],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-immich:2283 {\n  }\n}\n"
+  },
+  "nextcloud": {
+    "app": "nextcloud",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [
+      "app already emits gzip; Caddy encode left off to preserve identity",
+      "well-known 301 redirects are app policy; passed through unchanged"
+    ],
+    "params": [],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-nextcloud:80 {\n  }\n}\n"
+  },
+  "pihole": {
+    "app": "pihole",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "large_post",
+            "key": "post10mb_len_header",
+            "direct": "",
+            "via": "0"
+          },
+          {
+            "probe": "large_post",
+            "key": "post10mb_status",
+            "direct": 405,
+            "via": 502
+          }
+        ]
+      },
+      {
+        "iteration": 2,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "large_post",
+            "key": "post10mb_status",
+            "direct": 405,
+            "via": 502
+          }
+        ]
+      },
+      {
+        "iteration": 3,
+        "params": [
+          "flush_interval -1"
+        ],
+        "diffs": [
+          {
+            "probe": "large_post",
+            "key": "post10mb_len_header",
+            "direct": "",
+            "via": "0"
+          },
+          {
+            "probe": "large_post",
+            "key": "post10mb_status",
+            "direct": 405,
+            "via": 502
+          }
+        ]
+      }
+    ],
+    "zero_diff": false,
+    "diffs": [
+      {
+        "probe": "large_post",
+        "key": "post10mb_len_header",
+        "direct": "",
+        "via": "0"
+      },
+      {
+        "probe": "large_post",
+        "key": "post10mb_status",
+        "direct": 405,
+        "via": 502
+      }
+    ],
+    "warnings": [
+      "iter: no known fixer applies to diffs: large_post.post10mb_len_header, large_post.post10mb_status",
+      "iter: no known fixer applies to diffs: large_post.post10mb_status"
+    ],
+    "params": [
+      "flush_interval -1"
+    ],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-pihole:80 {\n    flush_interval -1\n  }\n}\n"
+  },
+  "n8n": {
+    "app": "n8n",
+    "ready": true,
+    "iterations": [
+      {
+        "iteration": 1,
+        "params": [],
+        "diffs": []
+      }
+    ],
+    "zero_diff": true,
+    "diffs": [],
+    "warnings": [],
+    "params": [],
+    "caddyfile": "{\n  admin off\n  auto_https off\n}\n:80 {\n  reverse_proxy probe-proxy-m1-n8n:5678 {\n  }\n}\n"
+  }
+}
