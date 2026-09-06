@@ -122,3 +122,39 @@ bash demo_errors.sh                        # clean-error paths + --json smoke
 sg docker -c ".venv/bin/python -m probe_proxy <container>"   # one command, any container
 sg docker -c ".venv/bin/python -m probe_proxy verify <Caddyfile>"
 ```
+
+## Milestone 3 — real-machine dogfood + hygiene + packaging (the ship gate)
+
+**What it is**: probe-proxy run end-to-end against the operator's REAL
+compose stack on the actual host (custom PHP/JWT admin app + phpMyAdmin,
+production Traefik-label fronted), read-only: throwaway networks/containers,
+generated blocks to a scratch dir; plus `uv tool install` packaging.
+
+**Hypothesis under test**: "The narrow value story (pass-through +
+replay-verify for the invisible-killer class) survives contact with a
+real operator's real machine." Kill condition: real-app runs produce
+unusable blocks or catch nothing the operator's config gets wrong.
+
+**Result**: narrow story SURVIVES — see `DOGFOOD.md` for the full log.
+2/2 usable blocks; the operator's custom app verified zero-diff in one
+iteration; phpMyAdmin surfaced a real proto-relative quirk (Secure
+cookie flag only set when X-Forwarded-Proto: https — silently dropped
+behind plain-:80 fronts, caught 3/3 by replay, honestly unfixed);
+the operator's actual TLS-edge production config simmed 0 diffs (their
+config is correct). Ship-gate decision data for the director:
+(a) 2 real proxy-fronted services by config (0 locally live — dev host
+runs proxy-less), (b) 2/2 blocks acceptable, (c) real invisible-killer
+class caught (cookie Secure flag) but no operator error found — their
+TLS-edge config is behavior-preserving, (d) mis-scored quirk class:
+proto-relative behavior (app reacts to XFP the proxy legitimately
+rewrites) — future: verify should simulate intended edge semantics.
+
+Run:
+```bash
+# dogfood (read-only against a running container):
+uv tool install .
+probe-proxy <container>            # end-to-end, writes <name>.Caddyfile
+probe-proxy verify <name>.Caddyfile # drift + broken-probe check
+# unit tests:
+.venv/bin/python -m pytest test_synthesize.py test_analyze.py test_m2.py -q
+python -m unittest discover        # clean (0 collected, no import errors)

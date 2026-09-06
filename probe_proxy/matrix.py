@@ -17,8 +17,9 @@ import httpx
 from . import probes
 from .apps import APPS
 from .cli import store_open, store_fingerprint
+from .paths import repo_file
 
-OUT = Path(__file__).resolve().parent.parent / "matrix.json"
+OUT = repo_file("matrix.json")
 
 
 def free_port() -> int:

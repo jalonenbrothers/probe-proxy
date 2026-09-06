@@ -22,8 +22,9 @@ from pathlib import Path
 
 from . import probes
 from . import synthesize
+from .paths import repo_file
 
-DB = Path(__file__).resolve().parent.parent / "probe_results.db"
+DB = repo_file("probe_results.db")
 
 
 def store_open():

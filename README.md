@@ -1,16 +1,39 @@
 # probe-proxy
 
-Empirical reverse-proxy config synthesis with a verify-by-replay loop.
-Every reverse-proxy config generator asks you to pick your app from a
-catalog of known quirks — and the catalogs rot. probe-proxy inverts this:
-run the container, probe its live behavior, synthesize a Caddy block from
-the observed behavior fingerprint, then **replay every probe through the
-generated config and diff results**, iterating up to 3 times until the
-config provably preserves the app's behavior.
+**Catches the reverse-proxy configs that silently break your app.**
+probe-proxy runs your container's app, probes its live behavior,
+synthesizes a Caddy block from the fingerprint, then **replays every
+probe through the generated config and diffs** — iterating until the
+config provably preserves app behavior (or honestly reports what it
+can't fix). It replaces the "pick your app from a quirks catalog"
+workflow, whose catalogs rot, with observed behavior + proof.
+
+```bash
+git clone git@github.com:jalonenbrothers/probe-proxy.git
+cd probe-proxy && uv tool install .   # or: see INSTALL.md
+probe-proxy <your-container>          # -> Caddy block + verification report
+```
+
+Value is honest and narrow: Caddy's default beats a catalog for most
+common apps — replay-verify earns its keep on the **invisible-killer
+class** (apps that 4xx/redirect/lose cookies behind a proxy with no
+error anywhere). See the baseline table: **synth beats empty config on
+3/10 catalog apps**, and the M3 real-machine dogfood caught a live
+cookie-Secure-flag drop behind phpMyAdmin. Details: [honest
+baseline](replay/baseline_table.md) · [dogfood log](DOGFOOD.md).
 
 **Milestone 1 status: PASSED — 8/10 apps zero-diff through the
 synthesized configs.** The replay-verify loop (the core delta) works:
 see `REPLAY.md`.
+
+## How it works
+
+Every reverse-proxy config generator asks you to pick your app from a
+catalog of known quirks — and the catalogs rot. probe-proxy inverts
+this: run the container, probe its live behavior, synthesize a Caddy
+block from the observed behavior fingerprint, then **replay every probe
+through the generated config and diff results**, iterating up to 3
+times until the config provably preserves the app's behavior.
 
 ## Milestone 0 — probe-coverage matrix
 
@@ -60,7 +83,8 @@ probe_proxy/
 analyze.py      # fingerprint vectors -> MATRIX.md + distinguishability verdict
 run_matrix.sh   # full M0 matrix run (wraps docker group via sg)
 run_sanity.sh   # httpbin sanity test (12/12 probes healthy)
-test_sanity.py  # sanity assertions
+check_probes.py # sanity assertions (script, not a unittest module —
+                # it exits at import-complete; run via run_sanity.sh)
 test_analyze.py # analyzer logic checks
 MATRIX.md       # M0 deliverable: probe x app grid + verdict
 matrix.json     # raw fingerprints

@@ -20,8 +20,9 @@ import httpx
 from . import probes
 from .apps import APPS
 from . import synthesize
+from .paths import data_dir
 
-OUT_DIR = Path(__file__).resolve().parent.parent / "replay"
+OUT_DIR = data_dir() / "replay"
 MAX_ITER = 3
 NETWORK = "probe-proxy-m1"
 

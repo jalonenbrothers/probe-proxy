@@ -23,7 +23,9 @@ from .apps import APPS
 from .replay import (confirm_diffs, diff_fingerprints, free_port,
                      replay_against, start_caddy, wait_caddy, wait_ready)
 
-OUT_DIR = Path(__file__).resolve().parent.parent / "replay"
+from .paths import data_dir
+
+OUT_DIR = data_dir() / "replay"
 
 
 def run_baseline_single(name: str, dc=None) -> dict:
