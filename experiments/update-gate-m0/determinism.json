@@ -1,0 +1,32 @@
+{
+  "vaultwarden|1.34.3|1.35.8": {
+    "recorded_diff": true,
+    "repro_diff": true,
+    "repro_n_changed": 6,
+    "repro_class": "unknown",
+    "repro_changed": [
+      "sse.sse_chunks_observed",
+      "sse.sse_content_type",
+      "sse.sse_first_chunk_ms",
+      "sse.sse_gaps_ge_50ms",
+      "sse.sse_max_gap_ms",
+      "sse.sse_streamed"
+    ],
+    "repro_changed_sorted": [
+      "sse.sse_chunks_observed",
+      "sse.sse_content_type",
+      "sse.sse_first_chunk_ms",
+      "sse.sse_gaps_ge_50ms",
+      "sse.sse_max_gap_ms",
+      "sse.sse_streamed"
+    ]
+  },
+  "jellyfin|10.11.3|10.11.4": {
+    "recorded_diff": false,
+    "repro_diff": false,
+    "repro_n_changed": 0,
+    "repro_class": "no-diff",
+    "repro_changed": [],
+    "repro_changed_sorted": []
+  }
+}

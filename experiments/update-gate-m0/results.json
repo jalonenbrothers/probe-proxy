@@ -1,0 +1,828 @@
+{
+  "nextcloud|25.0.13|26.0.13": {
+    "app": "nextcloud",
+    "old": "25.0.13",
+    "new": "26.0.13",
+    "cls": "major",
+    "strict": true,
+    "note": "X 25->26",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 2,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "root.root_powered_by": {
+        "old": "PHP/8.1.26",
+        "new": "PHP/8.2.18"
+      },
+      "root.root_server": {
+        "old": "Apache/2.4.56 (Debian)",
+        "new": "Apache/2.4.59 (Debian)"
+      }
+    },
+    "flaky_old": {
+      "large_post": 2
+    },
+    "flaky_new": {
+      "large_post": 2
+    }
+  },
+  "nextcloud|26.0.13|27.1.11": {
+    "app": "nextcloud",
+    "old": "26.0.13",
+    "new": "27.1.11",
+    "cls": "major",
+    "strict": true,
+    "note": "X 26->27.1",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 2,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "root.root_powered_by": {
+        "old": "PHP/8.2.18",
+        "new": "PHP/8.2.22"
+      },
+      "root.root_server": {
+        "old": "Apache/2.4.59 (Debian)",
+        "new": "Apache/2.4.61 (Debian)"
+      }
+    },
+    "flaky_old": {
+      "large_post": 2
+    },
+    "flaky_new": {
+      "large_post": 2
+    }
+  },
+  "nextcloud|27.1.11|28.0.14": {
+    "app": "nextcloud",
+    "old": "27.1.11",
+    "new": "28.0.14",
+    "cls": "major",
+    "strict": true,
+    "note": "X 27->28",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 2,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "root.root_powered_by": {
+        "old": "PHP/8.2.22",
+        "new": "PHP/8.2.27"
+      },
+      "root.root_server": {
+        "old": "Apache/2.4.61 (Debian)",
+        "new": "Apache/2.4.62 (Debian)"
+      }
+    },
+    "flaky_old": {
+      "large_post": 2
+    },
+    "flaky_new": {
+      "large_post": 2
+    }
+  },
+  "nextcloud|28.0.14|29.0.8": {
+    "app": "nextcloud",
+    "old": "28.0.14",
+    "new": "29.0.8",
+    "cls": "major",
+    "strict": true,
+    "note": "X 28->29",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 1,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "root.root_powered_by": {
+        "old": "PHP/8.2.27",
+        "new": "PHP/8.2.25"
+      }
+    },
+    "flaky_old": {
+      "large_post": 2
+    },
+    "flaky_new": {
+      "large_post": 2
+    }
+  },
+  "grafana|9.5.21|10.4.19": {
+    "app": "grafana",
+    "old": "9.5.21",
+    "new": "10.4.19",
+    "cls": "major",
+    "strict": true,
+    "note": "X 9->10.4",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "grafana|10.4.19|11.6.16": {
+    "app": "grafana",
+    "old": "10.4.19",
+    "new": "11.6.16",
+    "cls": "major",
+    "strict": true,
+    "note": "X 10->11.6",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "grafana|11.6.16|12.4.10": {
+    "app": "grafana",
+    "old": "11.6.16",
+    "new": "12.4.10",
+    "cls": "major",
+    "strict": true,
+    "note": "X 11->12.4",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "grafana|12.4.10|13.2.1": {
+    "app": "grafana",
+    "old": "12.4.10",
+    "new": "13.2.1",
+    "cls": "major",
+    "strict": true,
+    "note": "X 12->13.2",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 8,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "compression.compression": {
+        "old": "none",
+        "new": "gzip"
+      },
+      "compression.vary": {
+        "old": false,
+        "new": true
+      },
+      "sse.sse_chunks_observed": {
+        "old": 5,
+        "new": null
+      },
+      "sse.sse_content_type": {
+        "old": "text/html",
+        "new": null
+      },
+      "sse.sse_first_chunk_ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_gaps_ge_50ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_max_gap_ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_streamed": {
+        "old": false,
+        "new": null
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {
+      "sse": 2
+    }
+  },
+  "homeassistant|2025.12.5|2026.1.3": {
+    "app": "homeassistant",
+    "old": "2025.12.5",
+    "new": "2026.1.3",
+    "cls": "major",
+    "strict": true,
+    "note": "month+year 2025.12->2026.1",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "homeassistant|2026.1.3|2026.2.3": {
+    "app": "homeassistant",
+    "old": "2026.1.3",
+    "new": "2026.2.3",
+    "cls": "major",
+    "strict": false,
+    "note": "month bump",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 6,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "sse.sse_chunks_observed": {
+        "old": 1,
+        "new": null
+      },
+      "sse.sse_content_type": {
+        "old": "text/html",
+        "new": null
+      },
+      "sse.sse_first_chunk_ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_gaps_ge_50ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_max_gap_ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_streamed": {
+        "old": false,
+        "new": null
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {
+      "sse": 2
+    }
+  },
+  "homeassistant|2026.2.3|2026.3.4": {
+    "app": "homeassistant",
+    "old": "2026.2.3",
+    "new": "2026.3.4",
+    "cls": "major",
+    "strict": false,
+    "note": "month bump",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 6,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "sse.sse_chunks_observed": {
+        "old": null,
+        "new": 1
+      },
+      "sse.sse_content_type": {
+        "old": null,
+        "new": "text/html"
+      },
+      "sse.sse_first_chunk_ms": {
+        "old": null,
+        "new": 0
+      },
+      "sse.sse_gaps_ge_50ms": {
+        "old": null,
+        "new": 0
+      },
+      "sse.sse_max_gap_ms": {
+        "old": null,
+        "new": 0
+      },
+      "sse.sse_streamed": {
+        "old": null,
+        "new": false
+      }
+    },
+    "flaky_old": {
+      "sse": 2
+    },
+    "flaky_new": {}
+  },
+  "homeassistant|2026.3.4|2026.4.4": {
+    "app": "homeassistant",
+    "old": "2026.3.4",
+    "new": "2026.4.4",
+    "cls": "major",
+    "strict": false,
+    "note": "month bump",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "pihole|v5.8.1|2025.02.0": {
+    "app": "pihole",
+    "old": "v5.8.1",
+    "new": "2025.02.0",
+    "cls": "major",
+    "strict": true,
+    "note": "v5->v6 (breaking webserver/API rewrite)",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 12,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "common_paths.path_statuses": {
+        "old": "{\"/admin\": 301, \"/api\": 200, \"/api/health\": 200, \"/api/v1\": 200, \"/health\": 200, \"/login\": 200, \"/metrics\": 200, \"/status\": 200, \"/web/\": 200, \"/websockets\": 200}",
+        "new": "{\"/admin\": 308, \"/api\": 404, \"/api/health\": 404, \"/api/v1\": 404, \"/health\": 302, \"/login\": 302, \"/metrics\": 302, \"/status\": 302, \"/web/\": 302, \"/websockets\": 302}"
+      },
+      "large_post.post10mb_len_header": {
+        "old": "760",
+        "new": null
+      },
+      "large_post.post10mb_status": {
+        "old": 200,
+        "new": null
+      },
+      "method_allow.options_allow": {
+        "old": "OPTIONS, GET, HEAD, POST",
+        "new": "GET, POST, PUT, DELETE, HEAD, OPTIONS, CONNECT, PATCH, PROPF"
+      },
+      "method_allow.propfind_status": {
+        "old": 200,
+        "new": 405
+      },
+      "root.root_server": {
+        "old": "lighttpd/1.4.53",
+        "new": ""
+      },
+      "root.root_status": {
+        "old": 200,
+        "new": 403
+      },
+      "sse.sse_chunks_observed": {
+        "old": 1,
+        "new": 5
+      },
+      "tls_redirect.tls_redirect_honors_param": {
+        "old": false,
+        "new": true
+      },
+      "tls_redirect.tls_redirect_status": {
+        "old": 200,
+        "new": 302
+      },
+      "well_known.well_known": {
+        "old": "{\"acme-challenge/test\": 200, \"caldav\": 200, \"carddav\": 200, \"matrix/server\": 200, \"security.txt\": 200, \"webfinger\": 200}",
+        "new": "{\"acme-challenge/test\": 302, \"caldav\": 302, \"carddav\": 302, \"matrix/server\": 302, \"security.txt\": 404, \"webfinger\": 302}"
+      },
+      "xfp_upgrade.xfp_status": {
+        "old": 200,
+        "new": 403
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {
+      "large_post": 2
+    }
+  },
+  "pihole|2025.02.7|2025.03.1": {
+    "app": "pihole",
+    "old": "2025.02.7",
+    "new": "2025.03.1",
+    "cls": "patch",
+    "strict": false,
+    "note": "calver patch",
+    "old_ready": true,
+    "new_ready": false,
+    "diff": true,
+    "n_changed": 5,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "_container_ready": {
+        "old": true,
+        "new": false
+      },
+      "common_paths.path_statuses": {
+        "old": "{\"/admin\": 308, \"/api\": 404, \"/api/health\": 404, \"/api/v1\": 404, \"/health\": 302, \"/login\": 302, \"/metrics\": 302, \"/status\": 302, \"/web/\": 302, \"/websockets\": 302}",
+        "new": "{\"/admin\": 308, \"/api\": 404, \"/api/health\": 404, \"/api/v1\": 404, \"/health\": 404, \"/login\": 404, \"/metrics\": 404, \"/status\": 404, \"/web/\": 404, \"/websockets\": 404}"
+      },
+      "tls_redirect.tls_redirect_honors_param": {
+        "old": true,
+        "new": false
+      },
+      "tls_redirect.tls_redirect_status": {
+        "old": 302,
+        "new": 404
+      },
+      "well_known.well_known": {
+        "old": "{\"acme-challenge/test\": 404, \"caldav\": 302, \"carddav\": 302, \"matrix/server\": 302, \"security.txt\": 404, \"webfinger\": 302}",
+        "new": "{\"acme-challenge/test\": 404, \"caldav\": 404, \"carddav\": 404, \"matrix/server\": 404, \"security.txt\": 404, \"webfinger\": 404}"
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "pihole|2025.06.2|2025.07.1": {
+    "app": "pihole",
+    "old": "2025.06.2",
+    "new": "2025.07.1",
+    "cls": "patch",
+    "strict": false,
+    "note": "calver patch",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "pihole|2025.11.1|2026.02.0": {
+    "app": "pihole",
+    "old": "2025.11.1",
+    "new": "2026.02.0",
+    "cls": "major",
+    "strict": true,
+    "note": "year-cross calver",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {
+      "sse": 2
+    },
+    "flaky_new": {
+      "sse": 2
+    }
+  },
+  "gitea|1.19.4|1.20.6": {
+    "app": "gitea",
+    "old": "1.19.4",
+    "new": "1.20.6",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.19->1.20",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 1,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "sse.sse_chunks_observed": {
+        "old": 2,
+        "new": 5
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "gitea|1.20.6|1.21.11": {
+    "app": "gitea",
+    "old": "1.20.6",
+    "new": "1.21.11",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.20->1.21",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 1,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "method_allow.options_allow": {
+        "old": "",
+        "new": "GET, POST"
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "gitea|1.21.11|1.22.6": {
+    "app": "gitea",
+    "old": "1.21.11",
+    "new": "1.22.6",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.21->1.22",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 2,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "method_allow.options_allow": {
+        "old": "GET, POST",
+        "new": null
+      },
+      "method_allow.propfind_status": {
+        "old": 405,
+        "new": null
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {
+      "method_allow": 2
+    }
+  },
+  "gitea|1.22.6|1.23.8": {
+    "app": "gitea",
+    "old": "1.22.6",
+    "new": "1.23.8",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.22->1.23",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {
+      "method_allow": 2
+    },
+    "flaky_new": {
+      "method_allow": 2
+    }
+  },
+  "uptimekuma|1.20.2|1.21.3": {
+    "app": "uptimekuma",
+    "old": "1.20.2",
+    "new": "1.21.3",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.20->1.21",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "uptimekuma|1.21.3|1.22.1": {
+    "app": "uptimekuma",
+    "old": "1.21.3",
+    "new": "1.22.1",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.21->1.22",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "uptimekuma|1.22.1|1.23.16": {
+    "app": "uptimekuma",
+    "old": "1.22.1",
+    "new": "1.23.16",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.22->1.23",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 2,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "large_post.post10mb_len_header": {
+        "old": "",
+        "new": "140"
+      },
+      "large_post.post10mb_status": {
+        "old": "err:DecodingError",
+        "new": 404
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "uptimekuma|1.23.16|1.23.17": {
+    "app": "uptimekuma",
+    "old": "1.23.16",
+    "new": "1.23.17",
+    "cls": "patch",
+    "strict": false,
+    "note": "patch",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "vaultwarden|1.32.7|1.33.2": {
+    "app": "vaultwarden",
+    "old": "1.32.7",
+    "new": "1.33.2",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.32->1.33",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "vaultwarden|1.33.2|1.34.3": {
+    "app": "vaultwarden",
+    "old": "1.33.2",
+    "new": "1.34.3",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.33->1.34",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "vaultwarden|1.34.3|1.35.8": {
+    "app": "vaultwarden",
+    "old": "1.34.3",
+    "new": "1.35.8",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.34->1.35",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 6,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "sse.sse_chunks_observed": {
+        "old": 1,
+        "new": null
+      },
+      "sse.sse_content_type": {
+        "old": "text/html",
+        "new": null
+      },
+      "sse.sse_first_chunk_ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_gaps_ge_50ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_max_gap_ms": {
+        "old": 0,
+        "new": null
+      },
+      "sse.sse_streamed": {
+        "old": false,
+        "new": null
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {
+      "sse": 2
+    }
+  },
+  "vaultwarden|1.35.8|1.37.2": {
+    "app": "vaultwarden",
+    "old": "1.35.8",
+    "new": "1.37.2",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.35->1.37 (skipped 1.36)",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 6,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "sse.sse_chunks_observed": {
+        "old": null,
+        "new": 1
+      },
+      "sse.sse_content_type": {
+        "old": null,
+        "new": "text/html"
+      },
+      "sse.sse_first_chunk_ms": {
+        "old": null,
+        "new": 0
+      },
+      "sse.sse_gaps_ge_50ms": {
+        "old": null,
+        "new": 0
+      },
+      "sse.sse_max_gap_ms": {
+        "old": null,
+        "new": 0
+      },
+      "sse.sse_streamed": {
+        "old": null,
+        "new": false
+      }
+    },
+    "flaky_old": {
+      "sse": 2
+    },
+    "flaky_new": {}
+  },
+  "jellyfin|10.9.11|10.10.7": {
+    "app": "jellyfin",
+    "old": "10.9.11",
+    "new": "10.10.7",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 10.9->10.10",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": true,
+    "n_changed": 3,
+    "diff_class": "unknown",
+    "changed_fields": {
+      "common_paths.path_statuses": {
+        "old": "{\"/admin\": 404, \"/api\": 404, \"/api/health\": 404, \"/api/v1\": 404, \"/health\": 200, \"/login\": 404, \"/metrics\": 404, \"/status\": 404, \"/web/\": 200, \"/websockets\": 404}",
+        "new": "{\"/admin\": 503, \"/api\": 503, \"/api/health\": 503, \"/api/v1\": 503, \"/health\": 503, \"/login\": 503, \"/metrics\": 503, \"/status\": 503, \"/web/\": 200, \"/websockets\": 503}"
+      },
+      "tls_redirect.tls_redirect_status": {
+        "old": 404,
+        "new": 503
+      },
+      "well_known.well_known": {
+        "old": "{\"acme-challenge/test\": 404, \"caldav\": 404, \"carddav\": 404, \"matrix/server\": 404, \"security.txt\": 404, \"webfinger\": 404}",
+        "new": "{\"acme-challenge/test\": 503, \"caldav\": 503, \"carddav\": 503, \"matrix/server\": 503, \"security.txt\": 503, \"webfinger\": 503}"
+      }
+    },
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "jellyfin|10.10.7|10.11.3": {
+    "app": "jellyfin",
+    "old": "10.10.7",
+    "new": "10.11.3",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 10.10->10.11",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "jellyfin|10.11.3|10.11.4": {
+    "app": "jellyfin",
+    "old": "10.11.3",
+    "new": "10.11.4",
+    "cls": "patch",
+    "strict": false,
+    "note": "patch",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  },
+  "jellyfin|10.11.4|10.11.5": {
+    "app": "jellyfin",
+    "old": "10.11.4",
+    "new": "10.11.5",
+    "cls": "patch",
+    "strict": false,
+    "note": "patch",
+    "old_ready": true,
+    "new_ready": true,
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "flaky_old": {},
+    "flaky_new": {}
+  }
+}
