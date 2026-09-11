@@ -209,6 +209,56 @@ sg docker -c ".venv/bin/python -m probe_proxy verify my-gitea.Caddyfile"
 sg docker -c ".venv/bin/python -m probe_proxy verify my-gitea.Caddyfile --json"
 ```
 
+## update-gate² — the pre-pull gate (M1)
+
+`docker compose pull` upgrades are blind: you find out what broke when
+it breaks. The gate makes the upgrade decision empirical:
+
+```bash
+# 1. record what your service currently behaves like (double-probe +
+#    stability filter; stores fingerprint + image tag/digest in SQLite)
+probe-proxy baseline my-gitea
+
+# 2. before pulling the new version: gate it. Pulls the new image (or
+#    reuses a local one), double-probes it in a THROWAWAY container
+#    (your running service is never touched), diffs vs the baseline.
+probe-proxy gate gitea/gitea:1.24.0
+```
+
+Verdicts (also the exit codes, so it composes in scripts / CI):
+
+- **ALLOW** (exit 0) — no stable behavioral diff; pull away.
+- **HOLD — known class** (exit 2) — diff, but entirely of classes
+  probe-proxy knows how to synthesize around (headers, SSE/compression,
+  redirects, methods, paths, large bodies, websockets). Names the
+  classes and changed fields; re-run synthesis after upgrading.
+- **HOLD — unknown** (exit 3) — any stable diff outside the known
+  classes; a human should look before pulling.
+
+M0 corpus measured on 32 real version jumps (8 apps): 47% of jumps
+change proxy-relevant behavior; 14 of 15 diffs are known-class; the
+unknown-hold would fire on only ~3% of upgrades. Determinism comes from
+the double-probe stability filter with timing-noise keys stripped
+*before* stability comparison (a lesson the M1 smoke test re-learned
+the hard way: `sse_first_chunk_ms` rounding luck flaked the whole SSE
+section and flipped ALLOW into a false HOLD — fixed and unit-tested).
+
+Stateful-app note: `baseline` records the *running* instance. If the
+app needs env/DB context to behave normally, pass the compose env to
+the gate side (`--env K=V ...`, `--port N`, `--cap-add CAP`) so the
+throwaway matches; otherwise the gate honestly holds on state, not
+image, differences.
+
+```bash
+probe-proxy gate pihole/pihole:2026.03.0 --service my-pihole \
+    --port 80 --env FTLCONF_webserver_api_password=throwaway123 \
+    --cap-add NET_ADMIN --json
+```
+
+Smoke evidence: `experiments/update-gate-m1/smoke.py` runs the real CLI
+over a 10-jump subset of the M0 corpus and requires verdict parity —
+see `experiments/update-gate-m1/` (results in `smoke_results.json`).
+
 ## Scope notes (from the critic, enforced)
 
 - Throwaway instances only — never probe a real deployment (probes can
