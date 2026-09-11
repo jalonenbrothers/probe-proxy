@@ -1,0 +1,218 @@
+{
+  "gitea|1.19.4|1.20.6": {
+    "expected": {
+      "verdict": "ALLOW",
+      "exit_code": 0,
+      "m0_diff": true
+    },
+    "got": {
+      "exit_code": 0,
+      "verdict": "ALLOW",
+      "class": "no-diff",
+      "n_changed": 0,
+      "changed_fields": [],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 17.0,
+    "match": true
+  },
+  "gitea|1.20.6|1.21.11": {
+    "expected": {
+      "verdict": "HOLD",
+      "exit_code": 2,
+      "m0_diff": true
+    },
+    "got": {
+      "exit_code": 2,
+      "verdict": "HOLD",
+      "class": "header-SSE-class",
+      "n_changed": 2,
+      "changed_fields": [
+        "method_allow.options_allow",
+        "method_allow.propfind_status"
+      ],
+      "flaky_sections": {
+        "method_allow": 1
+      },
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 16.7,
+    "match": true
+  },
+  "gitea|1.22.6|1.23.8": {
+    "expected": {
+      "verdict": "ALLOW",
+      "exit_code": 0,
+      "m0_diff": false
+    },
+    "got": {
+      "exit_code": 0,
+      "verdict": "ALLOW",
+      "class": "no-diff",
+      "n_changed": 0,
+      "changed_fields": [],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 17.9,
+    "match": true
+  },
+  "grafana|11.6.16|12.4.10": {
+    "expected": {
+      "verdict": "ALLOW",
+      "exit_code": 0,
+      "m0_diff": false
+    },
+    "got": {
+      "exit_code": 0,
+      "verdict": "ALLOW",
+      "class": "no-diff",
+      "n_changed": 0,
+      "changed_fields": [],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 54.2,
+    "match": true
+  },
+  "grafana|12.4.10|13.2.1": {
+    "expected": {
+      "verdict": "HOLD",
+      "exit_code": 3,
+      "m0_diff": true
+    },
+    "got": {
+      "exit_code": 3,
+      "verdict": "HOLD",
+      "class": "unknown",
+      "n_changed": 2,
+      "changed_fields": [
+        "compression.compression",
+        "compression.vary"
+      ],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 90.4,
+    "match": true
+  },
+  "vaultwarden|1.33.2|1.34.3": {
+    "expected": {
+      "verdict": "ALLOW",
+      "exit_code": 0,
+      "m0_diff": false
+    },
+    "got": {
+      "exit_code": 0,
+      "verdict": "ALLOW",
+      "class": "no-diff",
+      "n_changed": 0,
+      "changed_fields": [],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 16.7,
+    "match": true
+  },
+  "homeassistant|2026.3.4|2026.4.4": {
+    "expected": {
+      "verdict": "ALLOW",
+      "exit_code": 0,
+      "m0_diff": false
+    },
+    "got": {
+      "exit_code": 0,
+      "verdict": "ALLOW",
+      "class": "no-diff",
+      "n_changed": 0,
+      "changed_fields": [],
+      "flaky_sections": {},
+      "pulled": false
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 13.4,
+    "match": true
+  },
+  "uptimekuma|1.22.1|1.23.16": {
+    "expected": {
+      "verdict": "HOLD",
+      "exit_code": 2,
+      "m0_diff": true
+    },
+    "got": {
+      "exit_code": 2,
+      "verdict": "HOLD",
+      "class": "header-SSE-class",
+      "n_changed": 2,
+      "changed_fields": [
+        "large_post.post10mb_len_header",
+        "large_post.post10mb_status"
+      ],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 44.9,
+    "match": true
+  },
+  "uptimekuma|1.23.16|1.23.17": {
+    "expected": {
+      "verdict": "ALLOW",
+      "exit_code": 0,
+      "m0_diff": false
+    },
+    "got": {
+      "exit_code": 0,
+      "verdict": "ALLOW",
+      "class": "no-diff",
+      "n_changed": 0,
+      "changed_fields": [],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 34.2,
+    "match": true
+  },
+  "vaultwarden|1.34.3|1.35.8": {
+    "expected": {
+      "verdict": "HOLD",
+      "exit_code": 2,
+      "m0_diff": true
+    },
+    "got": {
+      "exit_code": 0,
+      "verdict": "ALLOW",
+      "class": "no-diff",
+      "n_changed": 0,
+      "changed_fields": [],
+      "flaky_sections": {},
+      "pulled": true
+    },
+    "expected_by_gate": {
+      "verdict": "ALLOW",
+      "exit_code": 0
+    },
+    "deviation_reason": "M0 HOLD was a timing-induced section-drop artifact; gate strips timing before stability -> deterministic ALLOW (3/3 repeats verified)",
+    "baseline_ready": true,
+    "baseline_flaky": {},
+    "secs": 17.0,
+    "match": true
+  }
+}

@@ -1,4 +1,4 @@
-"""probe-proxy CLI — Milestone 2.
+"""probe-proxy CLI — Milestone 2 + update-gate² (M1).
 
 Usage:
   probe-proxy <container-name> [--json]     # end-to-end: probe -> synthesize
@@ -11,6 +11,15 @@ Usage:
                                             # probes (hand-edit counter)
   probe-proxy matrix                        # run full M0 matrix over catalog
   probe-proxy run <name-or-url>             # probe suite only
+  probe-proxy baseline <container> [--json] # update-gate²: record the running
+                                            # service's stable fingerprint
+  probe-proxy gate <image:tag> [--service NAME] [--port N]
+                       [--env K=V ...] [--cap-add CAP] [--json]
+                                            # update-gate²: pull new image,
+                                            # double-probe in a throwaway
+                                            # container, diff vs baseline.
+                                            # exit 0 ALLOW / 2 HOLD known /
+                                            # 3 HOLD unknown / 1 error
 """
 from __future__ import annotations
 
@@ -217,6 +226,40 @@ def main(argv=None):
         return 1
     as_json = "--json" in argv
     argv = [a for a in argv if a != "--json"]
+    # option parsing for gate (pull name/value pairs out before dispatch)
+    service = None
+    port = 80
+    env_items: list[str] = []
+    cap_add: list[str] = []
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == "--service":
+            if i + 1 >= len(argv):
+                print("usage: probe-proxy gate <image:tag> --service NAME")
+                return 1
+            service = argv[i + 1]
+            del argv[i:i + 2]
+        elif a == "--port":
+            if i + 1 >= len(argv):
+                print("usage: probe-proxy gate <image:tag> --port N")
+                return 1
+            port = int(argv[i + 1])
+            del argv[i:i + 2]
+        elif a == "--env":
+            if i + 1 >= len(argv):
+                print("usage: probe-proxy gate <image:tag> --env K=V")
+                return 1
+            env_items.append(argv[i + 1])
+            del argv[i:i + 2]
+        elif a == "--cap-add":
+            if i + 1 >= len(argv):
+                print("usage: probe-proxy gate <image:tag> --cap-add CAP")
+                return 1
+            cap_add.append(argv[i + 1])
+            del argv[i:i + 2]
+        else:
+            i += 1
     cmd, *args = argv
     if cmd == "matrix" or cmd == "matrix_retry":
         cmd_matrix()
@@ -231,10 +274,27 @@ def main(argv=None):
     elif cmd in ("replay", "replay_retry"):
         from . import replay
         replay.run()
-    elif cmd in ("baseline", "baseline_retry"):
+    elif cmd == "baseline":
+        # update-gate²: record the running service's gate baseline
+        if not args:
+            print("usage: probe-proxy baseline <container> [--json]")
+            return 1
+        from . import gate
+        return gate.cmd_baseline(args[0], as_json=as_json)
+    elif cmd == "baseline-m2":
+        # M2 honest-baseline experiment suite (moved here; `baseline`
+        # now belongs to the update-gate)  — run_baseline.sh calls this
         from . import baseline
-        only = args or None
-        baseline.run(only)
+        baseline.run(args or None)
+    elif cmd == "gate":
+        if not args:
+            print("usage: probe-proxy gate <image:tag> [--service NAME] "
+                  "[--port N] [--env K=V ...] [--cap-add CAP] [--json]")
+            return 1
+        from . import gate
+        return gate.cmd_gate(args[0], service=service, port=port,
+                             env=gate._parse_env(env_items),
+                             cap_add=cap_add or None, as_json=as_json)
     elif cmd == "replay_report":
         from . import report
         report.main()

@@ -158,3 +158,49 @@ probe-proxy verify <name>.Caddyfile # drift + broken-probe check
 # unit tests:
 .venv/bin/python -m pytest test_synthesize.py test_analyze.py test_m2.py -q
 python -m unittest discover        # clean (0 collected, no import errors)
+```
+
+## update-gate² M1 — the gate CLI (IDEA-10)
+
+**What it is**: `probe-proxy baseline <container>` (double-probe the
+running service, store stable fingerprint + image tag/digest in the
+SQLite `baselines` table) and `probe-proxy gate <image:tag>` (pull the
+new image, double-probe it in a THROWAWAY container, diff vs baseline,
+print ALLOW / HOLD-known / HOLD-unknown; the verdict IS the exit code:
+0 / 2 / 3, 1 = error). Reuses the shipped probe suite and diff
+mechanics; no reimplementation.
+
+**Hypothesis under test** (the card's kill condition): the CLI produces
+DETERMINISTIC verdicts on a 10-jump smoke subset of the M0 corpus,
+matching the M0 reclassify results. Determinism is the product.
+
+**What it means**: ALLOW = pull; HOLD-known = re-run synthesis around
+the named classes after upgrading; HOLD-unknown = human looks first.
+
+**A real bug the smoke caught** (the run's discovery): the M0
+double-probe stability filter compared SECTIONS including timing-noise
+leaves (`sse_first_chunk_ms`), so a section could flake on rounding
+luck, get dropped, and emit spurious old->null diffs that flipped ALLOW
+into a false HOLD (gitea 1.22->1.23, 2 false HOLDs). Fix: strip timing
+leaves BEFORE the stability comparison (M0's reclassify fixed the same
+leak in the DIFF; the leak in the FILTER feeding it was latent).
+Unit-tested in `test_gate.py::test_stable_fingerprint_ignores_timing_noise`.
+
+**Stateful-app note**: `baseline` records the RUNNING instance. Gating
+a bare throwaway of a stateful app (env/DB-dependent) holds on state
+differences, not image differences — pass the compose env through
+`--env K=V --port N --cap-add CAP` (documented in README).
+
+**Compose integration**: deliberately NOT built (card: skip if heavy).
+Wrapper pattern: `probe-proxy gate $(yaml-read image:tag of service)`
+before `docker compose pull` — resolving "newer tag" via registry APIs
+is a follow-up, not v1.
+
+Run:
+```bash
+.venv/bin/python -m pytest test_gate.py -q   # 24 verdict-logic tests
+.venv/bin/python experiments/update-gate-m1/smoke.py   # 10-jump live
+# smoke needs docker + ~8GB disk for image pulls; ~20-30 min cold
+```
+Smoke results: `experiments/update-gate-m1/smoke_results.json`
+(expected: 10/10 verdict parity with M0 reclassify).
