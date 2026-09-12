@@ -1,0 +1,1336 @@
+{
+  "vaultwarden|1.32.7|1.33.2": {
+    "app": "vaultwarden",
+    "old": "1.32.7",
+    "new": "1.33.2",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.32->1.33",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "new_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "vaultwarden|1.34.3|1.35.8": {
+    "app": "vaultwarden",
+    "old": "1.34.3",
+    "new": "1.35.8",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.34->1.35",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "new_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "vaultwarden|1.35.8|1.37.2": {
+    "app": "vaultwarden",
+    "old": "1.35.8",
+    "new": "1.37.2",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.35->1.37",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "new_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "vaultwarden|1.33.2|1.34.3": {
+    "app": "vaultwarden",
+    "old": "1.33.2",
+    "new": "1.34.3",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.33->1.34",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "new_fp": {
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "X25519"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "alpn": "",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA",
+      "ocsp_stapled": false,
+      "cert_cn": "probe.test",
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "tls_version": "TLS1.3",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "nextcloud|25.0.13|26.0.13": {
+    "app": "nextcloud",
+    "old": "25.0.13",
+    "new": "26.0.13",
+    "cls": "major",
+    "strict": true,
+    "note": "X 25->26",
+    "diff": true,
+    "n_changed": 1,
+    "diff_class": "crypto-visible",
+    "changed_fields": {
+      "tls_versions": {
+        "old": [
+          "TLS1.3",
+          "TLS1.2",
+          "TLS1.1",
+          "TLS1.0"
+        ],
+        "new": [
+          "TLS1.3",
+          "TLS1.2"
+        ]
+      }
+    },
+    "old_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2",
+        "TLS1.1",
+        "TLS1.0"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "new_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "nextcloud|27.1.11|28.0.14": {
+    "app": "nextcloud",
+    "old": "27.1.11",
+    "new": "28.0.14",
+    "cls": "major",
+    "strict": true,
+    "note": "X 27->28",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "new_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "nextcloud|28.0.14|29.0.8": {
+    "app": "nextcloud",
+    "old": "28.0.14",
+    "new": "29.0.8",
+    "cls": "major",
+    "strict": true,
+    "note": "X 28->29",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "new_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "grafana|9.5.21|10.4.19": {
+    "app": "grafana",
+    "old": "9.5.21",
+    "new": "10.4.19",
+    "cls": "major",
+    "strict": true,
+    "note": "X 9->10.4",
+    "diff": true,
+    "n_changed": 1,
+    "diff_class": "crypto-visible",
+    "changed_fields": {
+      "groups_accepted": {
+        "old": [
+          "P-256",
+          "P-384",
+          "P-521",
+          "X25519"
+        ],
+        "new": [
+          "P-256",
+          "P-384",
+          "P-521",
+          "X25519",
+          "X25519MLKEM768"
+        ]
+      }
+    },
+    "old_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "new_fp": {
+      "tls_version": "TLS1.3",
+      "sct_count": 0,
+      "cert_sig_alg": "SHA256-RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "cert_cn": "probe.test",
+      "ocsp_stapled": false,
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_issuer_cn": "probe.test",
+      "cert_key_type": "RSA",
+      "resumption": false,
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "alpn": "",
+      "cert_key_bits": 2048
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "grafana|11.6.16|12.4.10": {
+    "app": "grafana",
+    "old": "11.6.16",
+    "new": "12.4.10",
+    "cls": "major",
+    "strict": true,
+    "note": "X 11->12.4",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "grafana|12.4.10|13.2.1": {
+    "app": "grafana",
+    "old": "12.4.10",
+    "new": "13.2.1",
+    "cls": "major",
+    "strict": true,
+    "note": "X 12->13.2",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "gitea|1.19.4|1.20.6": {
+    "app": "gitea",
+    "old": "1.19.4",
+    "new": "1.20.6",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.19->1.20",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "gitea|1.21.11|1.22.6": {
+    "app": "gitea",
+    "old": "1.21.11",
+    "new": "1.22.6",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.21->1.22",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "gitea|1.22.6|1.23.8": {
+    "app": "gitea",
+    "old": "1.22.6",
+    "new": "1.23.8",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.22->1.23",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "grafana|10.4.19|11.6.16": {
+    "app": "grafana",
+    "old": "10.4.19",
+    "new": "11.6.16",
+    "cls": "major",
+    "strict": true,
+    "note": "X 10->11.6",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "nextcloud|26.0.13|27.1.11": {
+    "app": "nextcloud",
+    "old": "26.0.13",
+    "new": "27.1.11",
+    "cls": "major",
+    "strict": true,
+    "note": "X 26->27.1",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.3",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "gitea|1.20.6|1.21.11": {
+    "app": "gitea",
+    "old": "1.20.6",
+    "new": "1.21.11",
+    "cls": "major",
+    "strict": false,
+    "note": "Y 1.20->1.21",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "new_fp": {
+      "cert_cn": "probe.test",
+      "groups_accepted": [
+        "P-256",
+        "X25519"
+      ],
+      "ocsp_stapled": false,
+      "cert_issuer_cn": "probe.test",
+      "resumption": false,
+      "cert_key_type": "RSA",
+      "tls_versions": [
+        "TLS1.2"
+      ],
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "sct_count": 0,
+      "tls_version": "TLS1.2",
+      "alpn": "",
+      "cert_sig_alg": "SHA256-RSA",
+      "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "homeassistant|2025.12.5|2026.1.3": {
+    "app": "homeassistant",
+    "old": "2025.12.5",
+    "new": "2026.1.3",
+    "cls": "major",
+    "strict": true,
+    "note": "month+year",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "new_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "homeassistant|2026.2.3|2026.3.4": {
+    "app": "homeassistant",
+    "old": "2026.2.3",
+    "new": "2026.3.4",
+    "cls": "major",
+    "strict": false,
+    "note": "month bump",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "new_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "homeassistant|2026.3.4|2026.4.4": {
+    "app": "homeassistant",
+    "old": "2026.3.4",
+    "new": "2026.4.4",
+    "cls": "major",
+    "strict": false,
+    "note": "month bump",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "new_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  },
+  "homeassistant|2026.1.3|2026.2.3": {
+    "app": "homeassistant",
+    "old": "2026.1.3",
+    "new": "2026.2.3",
+    "cls": "major",
+    "strict": false,
+    "note": "month bump",
+    "diff": false,
+    "n_changed": 0,
+    "diff_class": "no-diff",
+    "changed_fields": {},
+    "old_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "new_fp": {
+      "ocsp_stapled": false,
+      "alpn": "",
+      "groups_accepted": [
+        "P-256",
+        "P-384",
+        "P-521",
+        "X25519",
+        "X25519MLKEM768"
+      ],
+      "resumption": false,
+      "tls_versions": [
+        "TLS1.3",
+        "TLS1.2"
+      ],
+      "sct_count": 0,
+      "cipher_suite": "TLS_AES_256_GCM_SHA384",
+      "cert_cn": "probe.test",
+      "probe_client": "tlsprobe-go-static-v1 (Go crypto/tls, PQ-hybrid-capable client)",
+      "cert_key_bits": 2048,
+      "cert_issuer_cn": "probe.test",
+      "tls_version": "TLS1.3",
+      "cert_key_type": "RSA",
+      "cert_sig_alg": "SHA256-RSA"
+    },
+    "flaky_old": {
+      "_tls_ready": 2
+    },
+    "flaky_new": {
+      "_tls_ready": 2
+    }
+  }
+}

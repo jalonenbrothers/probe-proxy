@@ -1,0 +1,729 @@
+{
+  "nextcloud|25.0.13|26.0.13": {
+    "app": "nextcloud",
+    "old": "25.0.13",
+    "new": "26.0.13",
+    "note": "X 25->26",
+    "cbom_assets_old": 1033,
+    "cbom_assets_new": 1106,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-25.0.13.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-26.0.13.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "nextcloud|27.1.11|28.0.14": {
+    "app": "nextcloud",
+    "old": "27.1.11",
+    "new": "28.0.14",
+    "note": "X 27->28",
+    "cbom_assets_old": 1111,
+    "cbom_assets_new": 1121,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-27.1.11.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-28.0.14.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "nextcloud|28.0.14|29.0.8": {
+    "app": "nextcloud",
+    "old": "28.0.14",
+    "new": "29.0.8",
+    "note": "X 28->29",
+    "cbom_assets_old": 1121,
+    "cbom_assets_new": 1120,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-28.0.14.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-29.0.8.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "grafana|9.5.21|10.4.19": {
+    "app": "grafana",
+    "old": "9.5.21",
+    "new": "10.4.19",
+    "note": "X 9->10.4",
+    "cbom_assets_old": 550,
+    "cbom_assets_new": 533,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-9.5.21.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-10.4.19.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 22,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "grafana|11.6.16|12.4.10": {
+    "app": "grafana",
+    "old": "11.6.16",
+    "new": "12.4.10",
+    "note": "X 11->12.4",
+    "cbom_assets_old": 445,
+    "cbom_assets_new": 446,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-11.6.16.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-12.4.10.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 28,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "grafana|12.4.10|13.2.1": {
+    "app": "grafana",
+    "old": "12.4.10",
+    "new": "13.2.1",
+    "note": "X 12->13.2",
+    "cbom_assets_old": 446,
+    "cbom_assets_new": 498,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-12.4.10.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-13.2.1.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 28,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "homeassistant|2025.12.5|2026.1.3": {
+    "app": "homeassistant",
+    "old": "2025.12.5",
+    "new": "2026.1.3",
+    "note": "month+year",
+    "cbom_assets_old": 2612,
+    "cbom_assets_new": 2616,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2025.12.5.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2026.1.3.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 38,
+        "vulnerable_before": 22,
+        "vulnerable_after": 22
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "homeassistant|2026.2.3|2026.3.4": {
+    "app": "homeassistant",
+    "old": "2026.2.3",
+    "new": "2026.3.4",
+    "note": "month bump",
+    "cbom_assets_old": 2572,
+    "cbom_assets_new": 2583,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2026.2.3.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2026.3.4.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 38,
+        "vulnerable_before": 22,
+        "vulnerable_after": 22
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "homeassistant|2026.3.4|2026.4.4": {
+    "app": "homeassistant",
+    "old": "2026.3.4",
+    "new": "2026.4.4",
+    "note": "month bump",
+    "cbom_assets_old": 2583,
+    "cbom_assets_new": 702,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 10,
+    "static_crypto_changed": 0,
+    "static_diff": true,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2026.3.4.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2026.4.4.json",
+      "summary": {
+        "added": 0,
+        "removed": 10,
+        "changed": 0,
+        "unchanged": 28,
+        "vulnerable_before": 22,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [
+        {
+          "name": "AES-256-CFB",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "CLASSICALLY ADEQUATE",
+          "nist_level": "5"
+        },
+        {
+          "name": "DES",
+          "asset_type": "algorithm",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "ECDSA-secp256k1",
+          "asset_type": "algorithm",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "PyJWT",
+          "asset_type": "library",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "RSA-1024",
+          "asset_type": "certificate",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "RSA-512",
+          "asset_type": "private-key",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "bcrypt",
+          "asset_type": "library",
+          "hndl_risk": "LOW",
+          "quantum_safe": "CLASSICALLY ADEQUATE",
+          "nist_level": "2"
+        },
+        {
+          "name": "cryptography",
+          "asset_type": "library",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "pyOpenSSL",
+          "asset_type": "library",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "pyjwt",
+          "asset_type": "library",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        }
+      ],
+      "changed": []
+    }
+  },
+  "gitea|1.19.4|1.20.6": {
+    "app": "gitea",
+    "old": "1.19.4",
+    "new": "1.20.6",
+    "note": "Y 1.19->1.20",
+    "cbom_assets_old": 840,
+    "cbom_assets_new": 860,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.19.4.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.20.6.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 15,
+        "vulnerable_after": 15
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "gitea|1.21.11|1.22.6": {
+    "app": "gitea",
+    "old": "1.21.11",
+    "new": "1.22.6",
+    "note": "Y 1.21->1.22",
+    "cbom_assets_old": 878,
+    "cbom_assets_new": 878,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.21.11.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.22.6.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 15,
+        "vulnerable_after": 15
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "gitea|1.22.6|1.23.8": {
+    "app": "gitea",
+    "old": "1.22.6",
+    "new": "1.23.8",
+    "note": "Y 1.22->1.23",
+    "cbom_assets_old": 878,
+    "cbom_assets_new": 881,
+    "static_crypto_added": 1,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": true,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.22.6.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.23.8.json",
+      "summary": {
+        "added": 1,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 15,
+        "vulnerable_after": 15
+      },
+      "added": [
+        {
+          "name": "ML-KEM-768",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "3"
+        }
+      ],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "vaultwarden|1.32.7|1.33.2": {
+    "app": "vaultwarden",
+    "old": "1.32.7",
+    "new": "1.33.2",
+    "note": "Y 1.32->1.33",
+    "cbom_assets_old": 661,
+    "cbom_assets_new": 662,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.32.7.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.33.2.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 24,
+        "vulnerable_before": 17,
+        "vulnerable_after": 17
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "vaultwarden|1.34.3|1.35.8": {
+    "app": "vaultwarden",
+    "old": "1.34.3",
+    "new": "1.35.8",
+    "note": "Y 1.34->1.35",
+    "cbom_assets_old": 667,
+    "cbom_assets_new": 554,
+    "static_crypto_added": 6,
+    "static_crypto_removed": 3,
+    "static_crypto_changed": 0,
+    "static_diff": true,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.34.3.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.35.8.json",
+      "summary": {
+        "added": 6,
+        "removed": 3,
+        "changed": 0,
+        "unchanged": 21,
+        "vulnerable_before": 17,
+        "vulnerable_after": 14
+      },
+      "added": [
+        {
+          "name": "ML-DSA-44",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "2"
+        },
+        {
+          "name": "ML-DSA-65",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "3"
+        },
+        {
+          "name": "ML-DSA-87",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "5"
+        },
+        {
+          "name": "ML-KEM-1024",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "5"
+        },
+        {
+          "name": "ML-KEM-512",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "1"
+        },
+        {
+          "name": "ML-KEM-768",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "3"
+        }
+      ],
+      "removed": [
+        {
+          "name": "DES",
+          "asset_type": "algorithm",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "ECDSA-int",
+          "asset_type": "algorithm",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        },
+        {
+          "name": "RC4",
+          "asset_type": "algorithm",
+          "hndl_risk": "CRITICAL",
+          "quantum_safe": "VULNERABLE",
+          "nist_level": "0"
+        }
+      ],
+      "changed": []
+    }
+  },
+  "vaultwarden|1.35.8|1.37.2": {
+    "app": "vaultwarden",
+    "old": "1.35.8",
+    "new": "1.37.2",
+    "note": "Y 1.35->1.37",
+    "cbom_assets_old": 554,
+    "cbom_assets_new": 554,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.35.8.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.37.2.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 27,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "grafana|10.4.19|11.6.16": {
+    "app": "grafana",
+    "old": "10.4.19",
+    "new": "11.6.16",
+    "note": "X 10->11.6",
+    "cbom_assets_old": 533,
+    "cbom_assets_new": 445,
+    "static_crypto_added": 6,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": true,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-10.4.19.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/grafana-11.6.16.json",
+      "summary": {
+        "added": 6,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 22,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [
+        {
+          "name": "ML-DSA-44",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "2"
+        },
+        {
+          "name": "ML-DSA-65",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "3"
+        },
+        {
+          "name": "ML-DSA-87",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "5"
+        },
+        {
+          "name": "ML-KEM-1024",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "5"
+        },
+        {
+          "name": "ML-KEM-512",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "1"
+        },
+        {
+          "name": "ML-KEM-768",
+          "asset_type": "algorithm",
+          "hndl_risk": "NONE",
+          "quantum_safe": "SAFE",
+          "nist_level": "3"
+        }
+      ],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "nextcloud|26.0.13|27.1.11": {
+    "app": "nextcloud",
+    "old": "26.0.13",
+    "new": "27.1.11",
+    "note": "X 26->27.1",
+    "cbom_assets_old": 1106,
+    "cbom_assets_new": 1111,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-26.0.13.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/nextcloud-27.1.11.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 14,
+        "vulnerable_after": 14
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "gitea|1.20.6|1.21.11": {
+    "app": "gitea",
+    "old": "1.20.6",
+    "new": "1.21.11",
+    "note": "Y 1.20->1.21",
+    "cbom_assets_old": 860,
+    "cbom_assets_new": 878,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.20.6.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/gitea-1.21.11.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 23,
+        "vulnerable_before": 15,
+        "vulnerable_after": 15
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "vaultwarden|1.33.2|1.34.3": {
+    "app": "vaultwarden",
+    "old": "1.33.2",
+    "new": "1.34.3",
+    "note": "Y 1.33->1.34",
+    "cbom_assets_old": 662,
+    "cbom_assets_new": 667,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.33.2.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/vaultwarden-1.34.3.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 24,
+        "vulnerable_before": 17,
+        "vulnerable_after": 17
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  },
+  "homeassistant|2026.1.3|2026.2.3": {
+    "app": "homeassistant",
+    "old": "2026.1.3",
+    "new": "2026.2.3",
+    "note": "month bump",
+    "cbom_assets_old": 2616,
+    "cbom_assets_new": 2572,
+    "static_crypto_added": 0,
+    "static_crypto_removed": 0,
+    "static_crypto_changed": 0,
+    "static_diff": false,
+    "delta": {
+      "before": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2026.1.3.json",
+      "after": "/home/osteri/projects/probe-proxy/experiments/update-gate-m0-pq/cboms/homeassistant-2026.2.3.json",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "changed": 0,
+        "unchanged": 38,
+        "vulnerable_before": 22,
+        "vulnerable_after": 22
+      },
+      "added": [],
+      "removed": [],
+      "changed": []
+    }
+  }
+}
